@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- add item form -->
+    <div class="form-container">
+        <h3 class="upload-heading">Upload an Item</h3>
+        <form method="post" action="" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            {% for field in form %}
+                {% if field.name == 'host'  %}
+                    <input type="hidden" name="host" value="{{ request.user.username }}">
+{#
+                {% else %}
+               <div class="mb-3">
+                   <label for="{{ field.id }}" class="form-label">{{ field.label }}</label>
+                {{ field }}
+                </div>
+                {% endif %}
+
+            {% endfor %}
+            {% for error in form.errors %}
+                <ul>
+                <li>{{ error }} is required.</li>
+                <li>Date format is: YYYY-MM-DD</li>
+                </ul>
+            {% endfor %}
+            <button type="submit" class="my-btn form-control">Upload</button>
+        </form>
+{#        <p class="mt-3">Already have an account? <a href="" style="color: #17D7A0;">Login</a></p>#}
+    </div>
+
+
+
+{% endblock content %}

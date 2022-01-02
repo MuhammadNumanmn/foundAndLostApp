@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<!-- single item details -->
+
+    <div class="singleItem_container">
+        <div class="row itemDetail">
+            <div class="col-md-4 ">
+                <img src="{{ item.image.url }}" alt="itemPic" class="img-fluid img-thumbnail">
+            </div>
+            <div class="col-md-8">
+            <div class="item_status">
+                <h5>Owner: <a href="mailto:{{ item.owner }}" class="username">{{ item.owner }}</a></h5>
+                <p>Item Status: <span class="status">{{ item.item_status }}</span></p>
+            </div>
+
+                <h6 >Item Name: <span class="username">{{ item.name }}</span></h6>
+                <p>Location: {{ item.location }}</p>
+                <p>Date: {{ item.dateFL|date:"M d, Y" }}</p>
+                <p>Description: {{ item.description }}</p>
+                {% if request.user == item.owner %}
+                <div class="btns">
+{#                    <a href="" class="my-btn">Donate</a>#}
+                    <a href="{% url 'updateItem' item.id %}" class="my-btn">Update</a>
+                    <a href="{% url 'deleteItem' item.id %}" class="my-btn">Delete</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="row user">
+            <div class="col-md-5 message" style="height: 280px;">
+                <div class="col-md-12">
+                    <h3>Leave a Message</h3>
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <label for="" class="pb-2">Message</label>
+                        <textarea name="message" id="message_id" class="form-control"></textarea>
+                        <button type="submit" class="my-btn mt-3">Send</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-7 user-message-section">
+                <div class="col-md-12">
+
+                    <h3>User Messages({{ total_messages }})</h3>
+                    {% for message in item_messages %}
+                    <div class="userMessage">
+                        <p ><a href="mailto:{{ message.user }}" class="username">{{ message.user }}</a> ({{ message.created|timesince }} ago)</p>
+                        <p>{{ message.body }}</p>
+                    </div>
+                    {% endfor %}
+
+                </div>
+                </div>
+            </div>
+    </div>
+
+{% endblock content %}

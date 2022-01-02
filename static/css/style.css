@@ -1,0 +1,233 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+    color: #fff;
+}
+a:hover{
+    color: #fff;
+}
+
+/* navbar styling */
+.navbar{
+    width: 100%;
+    height: 78px;
+}
+.navbar-brand{
+    color: #fff;
+    font-size: 1.3rem;
+}
+.navbar-brand span{
+    font-size: 2.5rem;
+    color: #17D7A0;
+}
+
+.nav-link{
+    color: #fff;
+}
+/* default button style */
+.my-btn{
+    background-color: #17D7A0;
+    border: 2px solid #17D7A0;
+    padding: 10px 15px;
+    color: #fff;
+    border-radius: 5px;
+    display: block;
+    margin: 0 3px;
+}
+
+.my-btn:hover{
+    background-color: transparent;
+    border: 2px solid #17D7A0;
+    color: #17D7A0;
+}
+/* login btn */
+.login-btn{
+    border: 2px solid #17D7A0;
+    padding: 10px 15px;
+    color: #17D7A0;
+    border-radius: 5px;
+    display: block;
+}
+.login-btn:hover{
+    background: #17D7A0;
+    color: #fff;
+}
+
+/* main-page style */
+.main-container{
+    padding: 3% 0;
+}
+.aboutus{
+    background: #544179;
+    padding: 2%;
+    border-radius: 5px;
+    color: #fff;
+    text-align: justify;
+}
+
+.about-heading{
+    color: #17D7A0;
+    font-size: 2rem;
+    padding-bottom: 10px;
+    text-align: center;
+}
+.main-container .card{
+    margin: 10px 0;
+}
+.btn-container{
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+.item-heading{
+    font-size: 2rem;
+    color: #17D7A0;
+    margin-top: 20px;
+}
+
+/* footer sytle */
+footer{
+    background: #544179;
+    padding: 3%;
+    color: #fff;
+}
+.my-link{
+    color: #17D7A0;
+}
+.email, .name{
+    margin: 5px 0;
+}
+.socialmedia p {
+    display: inline-block;
+}
+.social-link{
+    color: #17D7A0;
+    font-size: 2rem;
+    padding: 0 10px;
+}
+.social-link:hover{
+    color: #fff;
+}
+
+/* login form styling */
+.form-container{
+    width: 500px;
+    margin: 5% auto;
+    color: #fff;
+    background: rgb(84,65,121);
+    background: linear-gradient(90deg, rgba(84,65,121,1) 0%, rgba(97,102,179,1) 100%);
+    padding: 2%;
+    border-radius: 5px;
+}
+
+.login-heading{
+    font-size: 4rem;
+    color: #17D7A0;
+    text-align: center;
+    padding: 0 0 10px 0;
+}
+/* upload item styling */
+
+.upload-heading{
+    color: #17D7A0;
+    font-size: 2.5rem;
+    text-align: center;
+    padding-bottom: 10px;
+}
+/* singleItem container */
+.singleItem_container{
+    padding: 4% 7%;
+
+}
+
+.itemDetail{
+    background: rgb(84,65,121);
+    background: linear-gradient(90deg, rgba(84,65,121,1) 0%, rgba(97,102,179,1) 100%);
+    padding: 2%;
+    border-radius: 5px;
+    color: #fff;
+}
+.btns{
+    display: flex;
+    height: 70px;
+    justify-content: center;
+    align-items: center;
+}
+.message{
+    margin-top: 3%;
+    background: rgb(84,65,121);
+    background: linear-gradient(90deg, rgba(84,65,121,1) 0%, rgba(97,102,179,1) 100%);
+    padding: 2%;
+    color: #fff;
+    border-radius: 5px;
+}
+.message h3{
+    color: #17D7A0;
+    font-size: 2rem;
+    padding-bottom: 20px;
+}
+.user-message-section{
+    margin-top: 3%;
+    /* padding: 2%; */
+
+}
+.user-message-section h3{
+    color: #17D7A0;
+    font-size: 2rem;
+    background: rgb(84,65,121);
+    background: linear-gradient(90deg,  rgba(97,102,179,1) 0%,  rgba(84,65,121,1) 100%);
+    padding: 2%;
+    border-radius: 5px;
+}
+.userMessage{
+    background: rgb(84,65,121);
+    background: linear-gradient(90deg,  rgba(97,102,179,1) 0%,  rgba(84,65,121,1) 100%);
+    color: #fff;
+    margin-bottom: 10px;
+    padding: 2%;
+    border-radius: 5px;
+}
+.username{
+    color: #17D7A0;
+}
+/* itemDetails Container */
+.itemDeatils_container{
+    padding: 7% 5%;
+}
+.item{
+    background: linear-gradient(90deg,  rgba(97,102,179,1) 0%,  rgba(84,65,121,1) 100%);
+    color: #fff;
+}
+.btn-link{
+    color: #17D7A0;
+    border: 2px solid #17D7A0;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.btn-link:hover{
+    color: #fff;
+    background-color: #17D7A0;
+}
+.pagination{
+    display: flex;
+    justify-content: center;
+}
+
+/*custom style*/
+.item_status{
+    display: flex;
+    justify-content: space-between;
+}
+.status{
+    color: #17D7A0;
+    border: 2px solid #17D7A0;
+    padding: 10px 15px;
+    border-radius: 5px;
+}

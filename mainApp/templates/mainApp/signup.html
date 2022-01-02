@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- signup form -->
+    <div class="form-container">
+        <h3 class="login-heading">Sign Up</h3>
+        <form method="post" action="">
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="mb-3">
+              <label for="" class="form-label">{{ field.label }}</label>
+                {{ field }}
+            </div>
+            {% endfor %}
+
+            <button type="submit" class="my-btn form-control">Sign Up</button>
+          </form>
+          <p class="mt-3">Already have an account? <a href="{% url 'login' %}" style="color: #17D7A0;">Login</a></p>
+    </div>
+
+
+
+{% endblock content %}

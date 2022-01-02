@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<!-- item details -->
+  <div class="itemDeatils_container">
+      <div class="row">
+      {% if page == 'Lost Items' %}
+          <h3 class="item-heading mb-3">Lost Items. ({{ itemsCount }})</h3>
+      {% elif page == 'Found Items' %}
+          <h3 class="item-heading mb-3">Found Items. ({{ itemsCount }})</h3>
+      {% else %}
+          <h3 class="item-heading mb-3">Donated Items. ({{ itemsCount }})</h3>
+      {% endif %}
+          {% for item in items %}
+                  <div class="col-md-3 mb-2">
+                    <a href="{%  url 'item' item.id %}">
+                        <div class="card item">
+                            <img src="{{ item.image.url }}" class="card-img-top img-thumbnail" alt="itemImg" style="height: 200px !important;">
+                            <div class="card-body">
+
+                              <p class="card-text ">Owner: <a class="username" href="mailto:{{ item.owner }}">{{ item.owner }} </a></p>
+                              <p class="card-text">Item Name: {{ item.name }}</p>
+                              <p class="card-text">Location: {{ item.location }}</p>
+                            </div>
+                        </div>
+                    </a>
+                  </div>
+              {% endfor %}
+
+      </div>
+      <nav aria-label="paginator">
+        <ul class="pagination pagination-lg mt-4">
+            <li class="page-item">
+
+                {% if items.has_previous %}
+                <a class="btn-link m-1" href="?page={{ items.previous_page_number }}" aria-label="Previous">
+                    &laquo;
+                </a>
+                {% endif %}
+            </li>
+          <li class="page-item"><a href="?page=1" class="btn-link">1</a></li>
+          <li class="page-item"><a class="btn-link m-1" href="?page=2">2</a></li>
+          <li class="page-item"><a class="btn-link" href="?page=3">3</a></li>
+        <li class="page-item">
+            {% if items.has_next %}
+            <a class="btn-link m-1" href="?page={{ items.next_page_number }}" aria-label="Next">
+                &raquo;
+            </a>
+            {% endif %}
+        </li>
+        </ul>
+      </nav>
+  </div>
+
+
+{% endblock content %}

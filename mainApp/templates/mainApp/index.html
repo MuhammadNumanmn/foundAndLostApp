@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<!-- main page -->
+
+      <div class="container main-container">
+          <div class="aboutus">
+              <div class="row">
+                  <div class="col about-container">
+                      <h3 class="about-heading">About  lost&found.</h3>
+                      <p>Most of the time we Lost/Found something and we are worry about that things, because it contains someone personal data. To solve this issue <span class="username">lost<span>&</span>found</span> app will help you to find thing you have ever lost.
+                      In a similar way, if you find something and want to return it to the person to whom it belongs, you can return it. The app mark items as
+                      <span class="username">donated</span>, if no response is received from a user with it 7 days.</p>
+                  </div>
+                  <div class="col about-container">
+                    <h3 class="about-heading">Our Aim</h3>
+                    <p>To solve the issue related to the item that some has lost/found. This <span class="username">fount&lost</span> will act as moderator and will return the items related to a specific person.
+                    Furthermore, this app automatically donate an item to raise donation funds, if no response is received within 7 days.</p>
+                </div>
+              </div>
+          </div>
+          <div class="row">
+          {% if items %}
+          <h3 class="item-heading">Search result...({{ searchCount }})</h3>
+              {% for item in items %}
+                  <div class="col-md-3">
+                    <a href="{%  url 'item' item.id %}">
+                        <div class="card item">
+                            <img src="{{ item.image.url }}" class="card-img-top img-thumbnail" alt="itemImg" style="height: 200px;">
+                            <div class="card-body">
+                              <p class="card-text ">Owner: <a class="username" href="mailto:{{ item.owner }}">{{ item.owner }} </a></p>
+                              <p class="card-text">Item Name: <span class="username">{{ item.name }}</span></p>
+                              <p class="card-text">Location: {{ item.location }}</p>
+                            </div>
+                        </div>
+                    </a>
+                  </div>
+              {% endfor %}
+              </div>
+            {% else %}
+            <h3 class="item-heading">Items Lost. ({{ lostCount }})</h3>
+              {% for item in lostItems %}
+                  <div class="col-md-3">
+                    <a href="{%  url 'item' item.id %}">
+                        <div class="card item">
+                            <img src="{{ item.image.url }}" class="card-img-top img-thumbnail" alt="itemImg" style="height: 200px;">
+                            <div class="card-body">
+                              <p class="card-text ">Owner: <a class="username" href="mailto:{{ item.owner }}">{{ item.owner }} </a></p>
+                              <p class="card-text">Item Name: <span class="username">{{ item.name }}</span></p>
+                              <p class="card-text">Location: {{ item.location }}</p>
+                            </div>
+                        </div>
+                    </a>
+                  </div>
+              {% endfor %}
+
+              <div class="btn-container">
+                <a href="{% url 'lostItems' %}" class="my-btn">Show All Items</a>
+            </div>
+            </div>
+            <div class="row">
+                <h3 class="item-heading">Items Found. ({{ foundCount }})</h3>
+
+                {% for item in foundItems %}
+              <div class="col-md-3">
+                <div class="card item">
+                    <a href="{% url 'item' item.id %}">
+                    <img src="{{ item.image.url }}" class="card-img-top img-thumbnail" alt="itemImg" style="height: 200px;">
+                    <div class="card-body">
+                        <p class="card-text ">Owner: <a class="username" href="mailto:{{ item.owner }}">{{ item.owner }} </a></p>
+                      <p class="card-text">Item Name: <span class="username">{{ item.name }}</span></p>
+                      <p class="card-text">Item Location: {{ item.location }}</p>
+                    </div>
+                    </a>
+                </div>
+              </div>
+              {% endfor %}
+
+              <div class="btn-container">
+                  <a href="{% url 'foundItems' %}" class="my-btn">Show All Items</a>
+              </div>
+            </div>
+
+      <div class="row">
+                <h3 class="item-heading">Items Donated. ({{ donatedCount }})</h3>
+
+                {% for item in donatedItems %}
+              <div class="col-md-3">
+                  <a href="{% url 'item' item.id %}">
+                      <div class="card item">
+                    <img src="{{ item.image.url }}" class="card-img-top img-thumbnail" alt="itemImg" style="height: 200px;">
+                    <div class="card-body">
+                        <p class="card-text ">Owner: <a class="username" href="mailto:{{ item.owner }}">{{ item.owner }} </a></p>
+                      <p class="card-text">Item Name: <span class="username">{{ item.name }}</span></p>
+                      <p class="card-text">Item Location: {{ item.location }}</p>
+                    </div>
+                </div>
+                  </a>
+
+              </div>
+              {% endfor %}
+
+              <div class="btn-container">
+                  <a href="{% url 'donatedItems' %}" class="my-btn">Show All Items</a>
+              </div>
+            </div>
+      {% endif %}
+        </div>
+
+
+    <!-- main page end -->
+
+
+{% endblock content %}
